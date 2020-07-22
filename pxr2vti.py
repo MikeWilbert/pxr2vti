@@ -3,7 +3,7 @@
 pxr2vti.py
 
 Script converts .pxr binary files into .vtk files, to be read e.g.
-with paraview. The script should be located in 'picsar/utils/postprocessing
+with paraview. The script should be located in 'picsar/utils/postprocessing'
 and the .pxr files should be contained in 'picsar/fortran_bin/RESULTS'.
 For the command line options run the script with the -h option.
 The script runs both with python version 2 and 3.
@@ -65,8 +65,8 @@ def conv2vti(filename, data_dir, vti_dir, field_name):
 	with open(out_filename, 'ab') as out_binary:
 		N = n_tot*SIZEOF_FLOAT
 		
-		out_binary.write((N).to_bytes(SIZEOF_INT, byteorder='little', signed=True)) # only python3
-		# ~ out_binary.write(bytearray(struct.pack("i", N)))
+		# out_binary.write((N).to_bytes(SIZEOF_INT, byteorder='little', signed=True)) # only python3
+		out_binary.write(bytearray(struct.pack("i", N)))
 			
 		for ix in range(nx):
 			for iy in range(ny):
